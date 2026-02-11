@@ -1,0 +1,17 @@
+h1{
+    width: 500px;
+    text-align: center;
+    margin-left: 25%;
+    text-shadow: black 4px 4px;
+}
+h2{
+    border: blue;
+    width:600px;
+    text-align: center;
+    background-color: rgb(165, 210, 233);
+    margin-left: 25%;
+}
+img{
+    text-align: center;
+    margin-left: 25%;
+}
