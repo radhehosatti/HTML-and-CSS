@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ladder Climb Game</title>
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.game {
+    width: 400px;
+    padding: 30px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.instructions {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+input {
+    display: none;
+}
+
+.step {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.step:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Character */
+.player {
+    font-size: 28px;
+    position: absolute;
+    left: -40px;
+    transition: 0.5s;
+}
+
+/* Step positions */
+#step1:checked ~ .player { top: 250px; }
+#step2:checked ~ .player { top: 200px; }
+#step3:checked ~ .player { top: 150px; }
+#step4:checked ~ .player { top: 100px; }
+#step5:checked ~ .player { top: 50px; }
+
+/* Win Message */
+#step5:checked ~ .result::after {
+    content: " 🎉 You Reached the Top!";
+    color: #33ff77;
+}
+
+/* Wrong step (example step3 is trap) */
+#step3:checked ~ .result::after {
+    content: " 💥 Oops! You Slipped!";
+    color: red;
+}
+
+.result {
+    margin-top: 20px;
+    min-height: 25px;
+    font-size: 18px;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="game">
+
+    <h1>🪜 Ladder Climb</h1>
+    <div class="instructions">
+        Click steps in order to climb safely!
+    </div>
+
+    <input type="radio" name="ladder" id="step1">
+    <label for="step1" class="step">Step 1</label>
+
+    <input type="radio" name="ladder" id="step2">
+    <label for="step2" class="step">Step 2</label>
+
+    <input type="radio" name="ladder" id="step3">
+    <label for="step3" class="step">Step 3 (Careful!)</label>
+
+    <input type="radio" name="ladder" id="step4">
+    <label for="step4" class="step">Step 4</label>
+
+    <input type="radio" name="ladder" id="step5">
+    <label for="step5" class="step">Top Step</label>
+
+    <div class="player">🧍</div>
+
+    <div class="result"></div>
+
+    <div class="footer">
+        CSS Only Game • No JavaScript
+    </div>
+
+</div>
+
+</body>
+</html>

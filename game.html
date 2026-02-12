@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors - CSS Only</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            color: orange;
+        }
+
+        input {
+            display: none;
+        }
+
+        .choice {
+            display: inline-block;
+            padding: 15px 20px;
+            margin: 10px;
+            background: #444;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .choice:hover {
+            background: orange;
+            transform: scale(1.1);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            min-height: 30px;
+        }
+
+        /* Assume Computer always chooses Scissors ✂️ */
+
+        #rock:checked ~ .result::after {
+            content: " 🪨 vs ✂️ → 🎉 You Win!";
+            color: lime;
+        }
+
+        #paper:checked ~ .result::after {
+            content: " 📄 vs ✂️ → 💥 You Lose!";
+            color: red;
+        }
+
+        #scissors:checked ~ .result::after {
+            content: " ✂️ vs ✂️ → 🤝 It's a Draw!";
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="game">
+    <h1>🪨 Rock Paper Scissors</h1>
+    <p>Computer chose: ✂️ Scissors</p>
+
+    <input type="radio" name="rps" id="rock">
+    <label for="rock" class="choice">🪨 Rock</label>
+
+    <input type="radio" name="rps" id="paper">
+    <label for="paper" class="choice">📄 Paper</label>
+
+    <input type="radio" name="rps" id="scissors">
+    <label for="scissors" class="choice">✂️ Scissors</label>
+
+    <div class="result"></div>
+</div>
+
+</body>
+</html>
